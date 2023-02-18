@@ -2,11 +2,21 @@ const express = require("express");
 const app = express();
 const path = require("path");
 
-(() => {
-  for (let i = 1; i <= 5; i++) {
-    app.get(`/page-${i}`, (req, res) => {
-      res.sendFile(path.join(__dirname, `./views/page-${i}.html`));
+ app.get("/page-1", (req, res) => {
+   res.sendFile(path.join(__dirname, `./views/page-1.html`));
+ });
+  app.get("/page-2", (req, res) => {
+    res.sendFile(path.join(__dirname, `./views/page-2.html`));
+  });
+   app.get("/page-3", (req, res) => {
+     res.sendFile(path.join(__dirname, `./views/page-3.html`));
+   });
+    app.get("/page-4", (req, res) => {
+      res.sendFile(path.join(__dirname, `./views/page-4.html`));
     });
-  }
-})();
+     app.get("/page-5", (req, res) => {
+       res.sendFile(path.join(__dirname, `./views/page-5.html`));
+     });
+
+
 app.listen(4000);

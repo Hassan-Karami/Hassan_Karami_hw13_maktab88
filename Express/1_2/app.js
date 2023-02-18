@@ -1,22 +1,22 @@
 const express = require("express");
 const app = express();
-function userRequest(route){
-  if(typeof(route) !== "string"){
-    return console.log("invalid route ")
-}
-app.get(route,function(req,res){
-  if(route === "/about") res.send("About Route");
-  else if (route === "/home") res.send("Home Route");
-  else if (route === "/contact") res.send("Contact Route");
-  else if(route === "/") res.send("Root Route");
-  else if(route === "*") res.send("Not Found");
+
+app.get("/",(req,res)=>{
+  res.send("Root Route");
 })
-}
-userRequest("/");
-userRequest("/home");
-userRequest("/about");
-userRequest("/contact");
-userRequest("*");
+
+app.get("/home",(req,res)=>{
+  res.send("Home Route");
+})
+app.get("/about",(req,res)=>{
+  res.send("Aboute Route");
+})
+app.get("/contact",(req,res)=>{
+  res.send("Home Route");
+})
+app.get("*",(req,res)=>{
+  res.send("404 NOT FOUND!!");
+})
 
 app.listen(4000);
 
